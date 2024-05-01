@@ -1,4 +1,4 @@
-from os.path import isfile
+from os.path import join, isfile
 import scipy.sparse
 import numpy as np
 import math
@@ -9,7 +9,7 @@ cutoff_perc = [0.1, 0.15, 0.2, 0.25, 0.3]
 
 def calc_3D_features(data_path, chr_name, site_coord, reso):
     # Loading the dists file
-    dists_file = f"{data_path}/{chr_name}.npz"
+    dists_file = join(data_path, f"{chr_name}.npz")
     assert isfile(dists_file), f"{dists_file} not found"
 
     dists = scipy.sparse.load_npz(dists_file)
