@@ -39,7 +39,8 @@ def calc_3D_features(data_path, chr_name, site_coord, reso):
 
         for c in node_num_cutoff:
             if len(dist_row) > 0:
-                mean_dist = dist_row[1:c].mean()
-                feats[f"dist_close_{c}"] = mean_dist
+                feats[f"dist_close_{c}"] = dist_row[1:c].mean()
+            else:
+                feats[f"dist_close_{c}"] = 0
 
     return feats
