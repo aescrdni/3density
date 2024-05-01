@@ -28,6 +28,7 @@ def calc_3D_features(data_path, chr_name, site_coord, reso):
     # Symmetrizing the triangular matrix
     dists = dists + dists.T - np.diag(np.diag(dists))
 
+    # Calculating features
     feats = {}
     node_name = round(site_coord / reso)
     if node_name < len(dists):
